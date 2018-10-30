@@ -30,9 +30,9 @@ func generateMarketData() {
 	if err != nil {
 		log.Fatal("dial:", err)
 	}
-    // kline link wss://stream.binance.com:9443/stream?streams=btcusdt@kline_1m.b10
-    
-    //depth, _, err := websocket.DefaultDialer.Dial("wss://stream.binance.com:9443/stream?streams=!miniTicker@arr@3000ms/btcusdt@depth.b10/btcusdt@aggTrade.b10", nil)
+	// kline link wss://stream.binance.com:9443/stream?streams=btcusdt@kline_1m.b10
+
+	//depth, _, err := websocket.DefaultDialer.Dial("wss://stream.binance.com:9443/stream?streams=!miniTicker@arr@3000ms/btcusdt@depth.b10/btcusdt@aggTrade.b10", nil)
 	//if err != nil {
 	//	log.Fatal("dial:", err)
 	//}
@@ -139,7 +139,7 @@ func main() {
 	log.SetFlags(0)
 	http.HandleFunc("/echo", echo)
 	http.HandleFunc("/", home)
-	go marketDataSenderRoutine()\
+	go marketDataSenderRoutine()
 	go generateMarketData()
 
 	go periodicPrints()
