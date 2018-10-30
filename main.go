@@ -139,7 +139,7 @@ func main() {
 	log.SetFlags(0)
 	http.HandleFunc("/echo", echo)
 	http.HandleFunc("/", home)
-	go marketDataSenderRoutine()
+	go marketDataSenderRoutine()\
 	go generateMarketData()
 
 	go periodicPrints()
